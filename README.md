@@ -1,3 +1,23 @@
+**Why I Built This**
+
+As a backend-focused developer with 4+ years of experience in Java, Spring Boot, and enterprise systems, I wanted to go beyond tutorial-level React and actually internalize the patterns that separate a working frontend from a well-architected one.
+
+Most learning projects treat hooks and libraries as isolated demos — a **useReducer** counter, a **useContext** theme toggle with nothing else attached. I didn't want to learn them that way. I wanted to hit the actual problems that make each pattern necessary, the same way I'd approach a real feature at work: start from a requirement, run into a limitation, and reach for the right tool because the code demanded it — not because a checklist did.
+
+So BudgetWise was built around one constraint: every concept had to earn its place by solving a real problem in the app, not exist as a standalone example.
+
+**useReducer** exists because five independent useState filters could drift out of sync — I needed one atomic way to reset them together.
+
+**useMemo** exists because category totals and monthly trends are real aggregation work, not free — recalculating them on every unrelated re-render would be wasteful.
+
+**useContext** exists because theme and currency are genuinely cross-cutting concerns that don't belong threaded through props at every layer.
+Formik + Yup exist because a multi-step form has to hold state across steps without losing data on "Back" — a problem that surfaces the moment you try to build it naively.
+
+**useRef** exists because a modal that traps keyboard focus and restores it correctly on close isn't optional polish — it's what makes the app usable without a mouse.
+Accessibility wasn't a final "pass" tacked on for a checklist — it's built into the components from the start, because that's the only way it actually holds up.
+
+
+
 **BudgetWise**
 
 A personal expense and budget tracking app built to demonstrate production-grade React patterns beyond basic CRUD — proper state architecture, form UX, and accessibility, not just "it renders."

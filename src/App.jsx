@@ -11,6 +11,7 @@ import { Dashboard } from './components/Dashboard'
 import { useBudgetContext } from './context/BudgetContext'
 import { Navbar } from './components/Navbar'
 import { AddExpenseModal } from './components/AddExpenseModal'
+import { LiveAnnouncer } from './components/LiveAnnouncer'
 
 const categories = [
   { id: "1", name: "Groceries" },
@@ -27,6 +28,13 @@ function App() {
   const { budgets } = useBudgets();
   const [filters, dispatch] = useReducer(filterReducer, initialFilterState);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [announcement, setAnnouncement] = useState("");
+
+  async function handleAddExpense(values) {
+    
+    await addExpense(values);
+    setAnnouncement(`Expense of ${values.amount} rupees added to ${values.category}`);
+  }
 
   const filteredExpenses = useMemo(() => {
 
@@ -50,11 +58,13 @@ function App() {
   return (
     <div className={`app app--${theme}`}>
 
+      <LiveAnnouncer message={announcement} />
+
       <Navbar />
 
       <button type="button" onClick={() => setIsModalOpen(true)} >+ Add Expense</button>
       
-      <h1>BudgetWise</h1>
+      <h1 className="visually-hidden">BudgetWise — Personal Expense Tracker</h1>
 
       <Dashboard expenses={expenses} budgets={budgets} />
 
@@ -79,7 +89,7 @@ function App() {
       <AddExpenseModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onSubmit={addExpense}
+        onSubmit={handleAddExpense}
         categories={categories}
       />
     </div>

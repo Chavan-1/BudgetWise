@@ -62,6 +62,15 @@
       "notes": "Momos",
       "recurring": false,
       "id": "_G1p1RoTPko"
+    },
+    {
+      "amount": 18000,
+      "category": "Rent",
+      "date": "2026-09-11",
+      "paymentMethod": "Bank Transfer",
+      "notes": "House Rent",
+      "recurring": false,
+      "id": "c64XsakVi2g"
     }
   ],
   "categories": [

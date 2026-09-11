@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { calculateBudgetStatus, calculateCategoryTotals, calculateMontlyTrend } from "../utils/analytics";
 import { Bar, BarChart, Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { useBudgetContext } from "../context/BudgetContext";
@@ -11,9 +11,8 @@ export function Dashboard({ expenses, budgets }) {
     const monthlyTrend = useMemo(() => calculateMontlyTrend(expenses), [expenses]);
     const budgetStatus = useMemo(() => calculateBudgetStatus(expenses, budgets), [expenses, budgets]);
     const totalSpend = useMemo(() => expenses.reduce((sum, exp) => sum + Number(exp.amount), 0), [expenses]);
-
     const { currencySymbol } = useBudgetContext();
-
+    
     return (
 
         <section aria-label="Spending analytics">
@@ -61,9 +60,9 @@ export function Dashboard({ expenses, budgets }) {
             <ul>
                 {budgetStatus.map((b) => (
 
-                    <li key={b.category} style={{ color: b.exceeded ? "#F44336" : "inherit" }}>
+                    <li key={b.category}>
                         {b.category}: {currencySymbol}{b.spent} / {currencySymbol}{b.limit} ({b.percentUsed}%)
-                        {b.exceeded && <strong> - Over budget!</strong>}
+                        {b.exceeded && <strong style={{ color: "#F44336" }}> ⚠ Over budget</strong>}
                     </li>
 
                 ))};

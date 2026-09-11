@@ -1,0 +1,112 @@
+{
+  "expenses": [
+    {
+      "id": "1",
+      "amount": 450,
+      "category": "Groceries",
+      "date": "2026-09-01",
+      "paymentMethod": "Card",
+      "notes": "Weekly groceries",
+      "recurring": false
+    },
+    {
+      "id": "2",
+      "amount": 1200,
+      "category": "Rent",
+      "date": "2026-08-01",
+      "paymentMethod": "Bank Transfer",
+      "notes": "",
+      "recurring": true
+    },
+    {
+      "id": "3",
+      "amount": 80,
+      "category": "Transport",
+      "date": "2026-10-03",
+      "paymentMethod": "UPI",
+      "notes": "Cab rides",
+      "recurring": false
+    },
+    {
+      "id": "4",
+      "amount": 500,
+      "category": "Entertainment",
+      "date": "2026-11-04",
+      "paymentMethod": "UPI",
+      "notes": "Movies",
+      "recurring": true
+    },
+    {
+      "id": "5",
+      "amount": 500,
+      "category": "Utilities",
+      "date": "2026-09-05",
+      "paymentMethod": "UPI",
+      "notes": "EMI",
+      "recurring": true
+    },
+    {
+      "amount": 100,
+      "category": "Groceries",
+      "date": "2026-09-11",
+      "paymentMethod": "UPI",
+      "notes": "Sause",
+      "recurring": false,
+      "id": "sN7m2i3nIHY"
+    },
+    {
+      "amount": 180,
+      "category": "Entertainment",
+      "date": "2026-09-11",
+      "paymentMethod": "UPI",
+      "notes": "Momos",
+      "recurring": false,
+      "id": "_G1p1RoTPko"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Groceries",
+      "color": "#4CAF50"
+    },
+    {
+      "id": "2",
+      "name": "Rent",
+      "color": "#F44336"
+    },
+    {
+      "id": "3",
+      "name": "Transport",
+      "color": "#2196F3"
+    },
+    {
+      "id": "4",
+      "name": "Entertainment",
+      "color": "#9C27B0"
+    },
+    {
+      "id": "5",
+      "name": "Utilities",
+      "color": "#FF9800"
+    }
+  ],
+  "budgets": [
+    {
+      "id": "1",
+      "category": "Groceries",
+      "monthlyLimit": 2000
+    },
+    {
+      "id": "2",
+      "category": "Rent",
+      "monthlyLimit": 1200
+    },
+    {
+      "id": "3",
+      "category": "Transport",
+      "monthlyLimit": 500
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
